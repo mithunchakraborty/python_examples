@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}My blog - Создать публикацию{% endblock %}
+
+{% block content %}
+    <h1>Создать публикацию</h1>
+    <p>{{ error }}</p>
+    <form action="/publish" method="post">
+        {% csrf_token %}
+        <input name="name" placeholder="Название" type="text">
+        <input name="secret" placeholder="Secret key" type="text">
+        <textarea name="text" placeholder="Текст"></textarea>
+        <input type="submit" value="Опубликовать">
+    </form>
+{% endblock %}

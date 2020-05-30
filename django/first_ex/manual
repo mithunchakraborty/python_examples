@@ -1,0 +1,9 @@
+upgrade pip: $ python3 -m pip install --upgrade pip
+install pipenv: $ pip install --user pipenv 
+input or create env: $ pipenv shell
+install django: $ pipenv install Django
+list of commands: $ django-admin
+init django: $ django-admin startproject <название_проекта> .
+lock: $ pipenv lock
+install dependencies: $ pipenv install --dev
+exit: $ exit

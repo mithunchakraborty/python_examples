@@ -1,0 +1,14 @@
+upgrade pip: $ python3 -m pip install --upgrade pip
+install pipenv: $ pip install --user pipenv
+input or create env: $ pipenv shell
+lock: $ pipenv lock
+install dependencies: $ pipenv install --dev
+exit: $ exit
+
+install django: $ pipenv install Django
+list of commands: $ django-admin
+init django: $ django-admin startproject <название_проекта> .
+execute server : $ python3 manage.py runserver
+
+Название папки с шаблонами нужно добавить в TEMPLATES settings.py
+
