@@ -11,4 +11,6 @@ init django: $ django-admin startproject <название_проекта> .
 execute server : $ python3 manage.py runserver
 
 Название папки с шаблонами нужно добавить в TEMPLATES settings.py
-
+Название папки с проектом добавить в INSTALLED_APPS settings.py
+После создания моделей необходима миграция в дб: $ python3 manage.py makemigrations web
+Применение миграции: $ python3 manage.py migrate

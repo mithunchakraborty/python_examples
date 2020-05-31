@@ -1,0 +1,16 @@
+Создание проекта: $ django-admin startproject <название> .
+
+Запуск сервера: $ python3 manage.py runserver
+    Чтобы сервер был доступе на других устройствах сети:
+    $ python3 manage.py runserver 0:8000
+
+Создать приложение опросов: $ python3 manage.py startapp polls
+
+Совершить миграцию: $ python3 manage.py makemigrations (<название приложения> для 1 раза)
+    Если выбор, 1 и далее ''
+
+Подтвердить миграцию: $ python3 manage.py migrate
+
+Увидеть отчет миграции в sql: $ python3 manage.py sqlmigrate polls 0001
+
+Проверка на ошибки проекта: $ python3 manage.py check

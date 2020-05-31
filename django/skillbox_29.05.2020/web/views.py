@@ -1,8 +1,10 @@
+from django.forms import model_to_dict
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from datetime import datetime
 
 from mysite import settings
+from web.models import Publication, Comment
 
 
 def index(request):
@@ -17,31 +19,23 @@ def status(request):
     return HttpResponse("<h1>OK</h1>")
 
 
-publications_data = [{
-        "id": 0,
-        "name": "Первая публикация",
-        "date": datetime.now(),
-        "text": "Это текст<br><br> дадая"
-    }, {
-        "id": 1,
-        "name": "Вторая публикация",
-        "date": datetime.now(),
-        "text": "Это текст<br><br> второй публикации"
-    }
-]
-
-
 def publications(request):
     return render(request, "publications.html", {
-        'publications': publications_data
+        'publications': Publication.objects.all()
     })
 
 
 def publication(request, number):
-    try:
-        return render(request, "publication.html", publications_data[number])
-    except:
-        return redirect('/')
+    elements = Publication.objects.filter(id=number)
+
+    if request.method == "GET":
+        try:
+            element = model_to_dict(elements[0])
+            return render(request, "publication.html", element)
+        except IndexError:
+            return redirect('/')
+    else:
+        pass
 
 
 def publish(request):
@@ -61,10 +55,9 @@ def publish(request):
                 "error": "Текст не может быть пустым"
             })
         else:
-            publications_data.append({
-                "id": len(publications_data),
-                "name": request.POST["name"],
-                "date": datetime.now(),
-                "text": request.POST["text"].replace('\n', "<br>")
-            })
+            Publication(
+                name=request.POST["name"],
+                date=datetime.now(),
+                text=request.POST["text"].replace("\n", "<br>")
+            ).save()
             return redirect("/publications")
