@@ -59,3 +59,5 @@
     >>> c.delete()
 
 Создание пользователя-администратора: $ python3 manage.py createsuperuser
+
+Запуск тестов: $ python3 manage.py test <приложение>
