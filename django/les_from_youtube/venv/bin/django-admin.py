@@ -1,0 +1,5 @@
+#!/home/mithun/Main/repos/python_examples/django/les_from_youtube/venv/bin/python
+from django.core import management
+
+if __name__ == "__main__":
+    management.execute_from_command_line()
