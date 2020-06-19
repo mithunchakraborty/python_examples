@@ -3,3 +3,4 @@
 Запуск веб-сервера: $ python3 manage.py runserver
 Создание приложения: $ python3 manage.py startapp movies
 Создать миграцию: $ python3 manage.py makemigrations
+Создать суперпользователя: $ python3 manage.py createsuperuser
