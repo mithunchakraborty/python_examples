@@ -4,3 +4,5 @@
 Создание приложения: $ python3 manage.py startapp movies
 Создать миграцию: $ python3 manage.py makemigrations
 Создать суперпользователя: $ python3 manage.py createsuperuser
+Установка ckeditor: $ pip install django-ckeditor
+    Далее: $ python3 manage.py collectstatic
